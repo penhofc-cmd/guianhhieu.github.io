@@ -387,7 +387,9 @@ window.addEventListener('resize', updateTextPosition);
 setTimeout(updateTextPosition, 50);
 
   </script>
-
+<div class="center-text">
+  <span id="changingText">Anh Hiếu❤️</span>
+</div>
 <script>
 const texts = [
   " Anh Hiếu ❤️",
@@ -406,19 +408,11 @@ let index = 0;
 const textEl = document.getElementById("changingText");
 
 setInterval(() => {
-  textEl.classList.add("fade-out");
-
-  setTimeout(() => {
-    index = (index + 1) % texts.length;
-    textEl.innerHTML = texts[index]; 
-    textEl.classList.remove("fade-out");
-    textEl.classList.add("fade-in");
-  }, 1000);
-
+  index = (index + 1) % texts.length;
+  textEl.innerHTML = texts[index];
 }, 4000);
 </script>
-<div class="center-text">
-  <span id="changingText">Anh Hiếu❤️</span>
-</div>
+
+ </script>
  </body>
 </HTML>

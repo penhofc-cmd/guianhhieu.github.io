@@ -45,22 +45,36 @@ canvas {
   z-index: 10;
   pointer-events: none;
 }
-   #changingText {
+  #changingText {
   font-size: 31px;
   font-style: italic;
 
-  display: inline-block;       
+  display: inline-block;
   white-space: pre-line;
 
-  background-image: linear-gradient(90deg, #c300ff, #ff00aa);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    90deg,
+    #c300ff,
+    #ff00aa,
+    #ffcc00,
+    #00e0ff
+  );
+
+  background-size: 300% 100%;
+  background-position: 0% 50%;
 
   -webkit-background-clip: text;
   background-clip: text;
 
   color: transparent;
   -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 6s ease infinite;
+}
+   @keyframes gradientMove {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
 }
   </style>
  </head>
@@ -356,7 +370,6 @@ function onResize() {
   <div class="center-text"
   
   style="
-    background-color: rgb(255, 235, 235);
     width: 100%;
     height: 100%;
     font-size: 31px;

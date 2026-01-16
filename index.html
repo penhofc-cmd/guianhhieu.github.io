@@ -46,12 +46,10 @@ canvas {
   z-index: 10;
   pointer-events: none;
 }
- #heart-text {
+#heart-text {
   position: fixed;
-  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
-
-  transform: translateX(-50%);
   pointer-events: none;
 }
 
@@ -152,6 +150,8 @@ window.addEventListener("resize", () => {
   /*
  * Settings
  */
+   let HEART_CENTER_X = 0;
+let HEART_CENTER_Y = 0;
 var settings = {
   particles: {
     length:   2000, // maximum amount of particles
@@ -367,8 +367,8 @@ var ParticlePool = (function() {
     : canvas.height / 2 - 30;
 
 particles.add(
-  canvas.width / 2 + pos.x,
-  heartCenterY - pos.y,
+  HEART_CENTER_X + pos.x,
+  HEART_CENTER_Y - pos.y,
   dir.x,
   -dir.y
 );
@@ -382,6 +382,9 @@ particles.add(
 function onResize() {
   canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  HEART_CENTER_X = canvas.width / 2;
+  HEART_CENTER_Y = canvas.height / 2;
 }
   window.onresize = onResize;
  
@@ -423,19 +426,15 @@ setInterval(() => {
 }, 4000);
 </script>
 <script>
-function updateHeartTextPosition() {
+function syncTextToHeart() {
   const text = document.getElementById("heart-text");
-
-  const heartCenterY =
-    window.innerWidth < 768
-      ? window.innerHeight / 2 - 60
-      : window.innerHeight / 2 - 30;
-
-  text.style.top = heartCenterY + "px";
+  text.style.left = HEART_CENTER_X + "px";
+  text.style.top  = HEART_CENTER_Y + "px";
 }
 
-window.addEventListener("resize", updateHeartTextPosition);
-window.addEventListener("load", updateHeartTextPosition);
+window.addEventListener("load", syncTextToHeart);
+window.addEventListener("resize", syncTextToHeart);
 </script>
+  
  </body>
 </HTML>  

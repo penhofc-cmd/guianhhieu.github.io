@@ -247,9 +247,12 @@ var ParticlePool = (function() {
  * Putting it all together
  */
 (function(canvas) {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+
   var context = canvas.getContext('2d'),
       particles = new ParticlePool(settings.particles.length),
-      particleRate = settings.particles.length / settings.particles.duration, // particles/sec
+      particleRate = settings.particles.length / settings.particles.duration,
       time;
  
   // get point on heart with -PI <= t <= PI

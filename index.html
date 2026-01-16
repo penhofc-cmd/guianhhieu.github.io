@@ -45,6 +45,23 @@ canvas {
   z-index: 10;
   pointer-events: none;
 }
+   #changingText {
+  font-size: 31px;
+  font-style: italic;
+
+  display: inline-block;       
+  white-space: pre-line;
+
+  background-image: linear-gradient(90deg, #c300ff, #ff00aa);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
   </style>
  </head>
  
@@ -349,10 +366,6 @@ function onResize() {
     justify-content: center;
     margin-bottom: 5px;
     text-align: center;
-
-    background-image: linear-gradient(90deg, #c300ff, #ff00aa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 ">
   <div id="textBox"
   style="
@@ -364,12 +377,7 @@ function onResize() {
     align-items: center;
     justify-content: center;
     text-align: center;
-
-    background-image: linear-gradient(90deg, #c300ff, #ff00aa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  "
->
+  ">
   <span id="changingText"> Anh Hiếu ❤️</span>
 </div>
 

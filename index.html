@@ -85,12 +85,13 @@ canvas {
  {
       transition: opacity 1s ease;
     }
-    .fade-out {
-      opacity: 0;
-    }
-    .fade-in {
-      opacity: 1;
-    }
+ .fade-out {
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+.fade-in {
+  opacity: 1;
+}
   </style>
  </HEAD>
  
@@ -413,7 +414,7 @@ var ParticlePool = (function() {
     -webkit-text-fill-color: transparent;
   "
 >
-  <span id="changingText"> Anh</strong> Hiếu ❤️</span>
+  <span id="changingText"> Anh Hiếu ❤️</span>
 </div>
 
 </div>

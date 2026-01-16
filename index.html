@@ -361,10 +361,7 @@ var ParticlePool = (function() {
     for (var i = 0; i < amount; i++) {
       var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
       var dir = pos.clone().length(settings.particles.velocity);
-   const heartCenterY =
-  window.innerWidth < 768
-    ? canvas.height / 2 - 60
-    : canvas.height / 2 - 30;
+
 
 particles.add(
   HEART_CENTER_X + pos.x,
@@ -428,11 +425,15 @@ setInterval(() => {
 <script>
 function syncTextToHeart() {
   const text = document.getElementById("heart-text");
+
+  if (!HEART_CENTER_X || !HEART_CENTER_Y) return;
+
   text.style.left = HEART_CENTER_X + "px";
   text.style.top  = HEART_CENTER_Y + "px";
 }
 
-window.addEventListener("load", syncTextToHeart);
+// đảm bảo tim đã khởi tạo xong
+setTimeout(syncTextToHeart, 50);
 window.addEventListener("resize", syncTextToHeart);
 </script>
   

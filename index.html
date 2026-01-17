@@ -421,7 +421,7 @@ function createHeart() {
   return {
     x: random(0, W),
     y: random(H, H + 200),
-    size: random(10, 22),
+    size: random(6, 14),
     speed: random(0.4, 1.2),
     sway: random(-0.5, 0.5),
     alpha: random(0.5, 1),
@@ -436,7 +436,7 @@ for (let i = 0; i < HEART_COUNT; i++) {
 function drawHeart(x, y, size, color, alpha) {
   ctx.save();
   ctx.translate(x, y);
-  ctx.scale(size / 30, size / 30);
+  ctx.scale(size / 40, size / 40);
   ctx.globalAlpha = alpha;
 
   ctx.beginPath();
